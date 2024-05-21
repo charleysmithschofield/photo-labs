@@ -4,7 +4,7 @@ console.log("Rendered PhotoListItem");
 
 
 const PhotoListItem = (props) => {
-  const { location, imageSource, username, profile } = props;
+  const { location, imageSource, username, profile } = props.photo;
   
   return (
     <div className="photoListItem">
