@@ -1,4 +1,8 @@
+// PhotoListItem.jsx
 import React from 'react';
+
+// import Sass stylesheet
+import '../styles/PhotoListItem.scss'
 
 console.log("Rendered PhotoListItem");
 
@@ -7,7 +11,7 @@ const PhotoListItem = (props) => {
   const { location, imageSource, username, profile } = props.photo;
   
   return (
-    <div className="photoListItem">
+    <div className="photo-list__item">
       <img src={imageSource} alt="Photo" className="starbucks-photo" />
       <div className="profile-photo">
         <img src={profile} alt="profile-photo" className="user-profile-photo" />
