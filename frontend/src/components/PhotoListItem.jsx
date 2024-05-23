@@ -3,6 +3,8 @@ import React from 'react';
 
 // import Sass stylesheet
 import '../styles/PhotoListItem.scss'
+// import PhotoFavButton
+import PhotoFavButton from './PhotoFavButton';
 
 console.log("Rendered PhotoListItem");
 
@@ -12,6 +14,7 @@ const PhotoListItem = (props) => {
   
   return (
     <div className="photo-list__item">
+      <PhotoFavButton />
     <img src={imageSource} alt="Photo" className="photo-list__image" />
     <div className="photo-list__user-details">
       <img src={profile} alt="profile-photo" className="photo-list__user-profile" />
