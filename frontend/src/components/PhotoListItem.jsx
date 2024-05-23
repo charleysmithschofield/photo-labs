@@ -1,13 +1,9 @@
 // PhotoListItem.jsx
 import React from 'react';
-
-// import Sass stylesheet
 import '../styles/PhotoListItem.scss'
-// import PhotoFavButton
 import PhotoFavButton from './PhotoFavButton';
 
 console.log("Rendered PhotoListItem");
-
 
 const PhotoListItem = (props) => {
   const { location, imageSource, username, profile } = props.photo;
