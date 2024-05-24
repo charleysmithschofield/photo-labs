@@ -18,11 +18,9 @@ const HomeRoute = (props) => {
   //Function to check if photoID is already present in likedPhotos state, if not, add the photoID
   const toggleLike = function(photoId) {
     if (likedPhotos.includes(photoId)) {
-      // console.log(`Removing like from photo ${photoId}`);
       const updatedLikedPhotos = likedPhotos.filter(id => id !== photoId);
       setLikedPhotos(updatedLikedPhotos);
     } else {
-      // console.log(`Adding like to photo ${photoId}`);
       const updatedLikedPhotos = [...likedPhotos, photoId];
       setLikedPhotos(updatedLikedPhotos);
     }
