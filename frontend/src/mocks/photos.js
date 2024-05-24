@@ -1,3 +1,5 @@
+// photos.js
+
 const photo1 = {
   "id": "1",
   "location": {
