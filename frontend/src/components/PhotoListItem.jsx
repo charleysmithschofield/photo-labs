@@ -1,16 +1,21 @@
-// PhotoListItem.jsx
 import React from 'react';
 import '../styles/PhotoListItem.scss';
 import PhotoFavButton from './PhotoFavButton';
 
-// console.log("Rendered PhotoListItem");
+const PhotoListItem = ({ photo, toggleLike, likedPhotos }) => {
+  const { location, urls, user } = photo;
 
-const PhotoListItem = (props) => {
-  const { location, urls, user } = props.photo;
+  // Check if the current photo is present in the likedPhotos array
+  const isLiked = likedPhotos.includes(photo.id);
 
   return (
     <div className="photo-list__item">
-      <PhotoFavButton />
+      {/* Pass toggleLike function and likedPhotos array to PhotoFavButton */}
+      <PhotoFavButton
+        toggleLike={toggleLike}
+        likedPhotos={likedPhotos}
+        photoId={photo.id} // Pass photoId to identify the current photo
+      />
       <img src={urls.full} alt="Photo" className="photo-list__image" />
       <div className="photo-list__user-details">
         <img src={user.profile} alt="profile-photo" className="photo-list__user-profile" />
