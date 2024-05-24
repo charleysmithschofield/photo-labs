@@ -1,5 +1,6 @@
 // HomeRoute.jsx
 import React from 'react';
+
 import { useState } from 'react';
 import TopNavigationBar from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
@@ -31,8 +32,14 @@ const HomeRoute = (props) => {
 
   return (
     <div className="home-route">
-      <TopNavigationBar topics={props.topics} likedPhotos={likedPhotos} setDisplayModal={setDisplayModal} />
-      <PhotoList photos={props.photos} likedPhotos={likedPhotos} toggleLike={toggleLike} setDisplayModal={setDisplayModal} />
+      <TopNavigationBar topics={props.topics} likedPhotos={likedPhotos} />
+      <PhotoList 
+        photos={props.photos} 
+        likedPhotos={likedPhotos} 
+        toggleLike={toggleLike} 
+        setDisplayModal={setDisplayModal} 
+        />
+        {displayModal && <PhotoDetailsModal />}
     </div>
   );
 };

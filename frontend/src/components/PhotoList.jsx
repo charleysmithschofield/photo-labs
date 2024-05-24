@@ -1,11 +1,12 @@
 // PhotoList.jsx
 import React from 'react';
 import PhotoListItem from './PhotoListItem';
+import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 
 import '../styles/PhotoList.scss'
 
 
-const PhotoList = ({ photos, toggleLike, likedPhotos }) => {
+const PhotoList = ({ photos, toggleLike, likedPhotos, setDisplayModal }) => {
 
   // handle image click
   const handleImageClick = () => {
