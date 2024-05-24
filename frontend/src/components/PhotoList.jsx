@@ -6,6 +6,11 @@ import '../styles/PhotoList.scss'
 
 
 const PhotoList = ({ photos, toggleLike, likedPhotos }) => {
+
+  // handle image click
+  const handleImageClick = () => {
+    setDisplayModal(true);
+  }
   return (
     <ul className="photo-list">
       {photos.map(photo => {
@@ -13,8 +18,9 @@ const PhotoList = ({ photos, toggleLike, likedPhotos }) => {
           <PhotoListItem
             key={photo.id}
             photo={photo}
-            toggleLike={toggleLike} // Pass the toggleLike function as a prop
-            likedPhotos={likedPhotos} // Pass the likedPhotos array as a prop
+            toggleLike={toggleLike} 
+            likedPhotos={likedPhotos} 
+            onImageClick={handleImageClick}
           />
         );
       })}
