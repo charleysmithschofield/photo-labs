@@ -3,7 +3,7 @@ import React from 'react';
 import '../styles/PhotoListItem.scss';
 import PhotoFavButton from './PhotoFavButton';
 
-console.log("Rendered PhotoListItem");
+// console.log("Rendered PhotoListItem");
 
 const PhotoListItem = (props) => {
   const { location, urls, user } = props.photo;
