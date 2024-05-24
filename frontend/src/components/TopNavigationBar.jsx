@@ -2,16 +2,20 @@
 import React from 'react';
 import TopicList from './TopicList';
 import FavBadge from './FavBadge';
+
 import '../styles/TopNavigationBar.scss'
 
-const TopNavigation = ({topics}) => {
+const TopNavigation = ({ topics, likedPhotos }) => {
+  // Check if likedPhotos has at least one photo
+  const isFavPhotoExist = likedPhotos && likedPhotos.length !== 0;
+
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
       <TopicList topics={topics} />
-      <FavBadge />
+      <FavBadge isFavPhotoExist={isFavPhotoExist}/>
     </div>
-  )
+  );
 }
 
 export default TopNavigation;
