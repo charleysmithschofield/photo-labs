@@ -1,6 +1,5 @@
 // TopNavigationBar.jsx
 import React from 'react';
-import PhotoList from './PhotoList';
 import TopicList from './TopicList';
 import FavBadge from './FavBadge';
 import '../styles/TopNavigationBar.scss'
