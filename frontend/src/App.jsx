@@ -10,14 +10,20 @@ import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 const App = () => {
   // Make state using useState hook
   const [likedPhotos, setLikedPhotos] = useState([]);
+  const [displayModal, setDisplayModal] = useState(false);
 
 
   return (
     <div className="App">
       {/* Render the HomeRoute component */}
-      <HomeRoute photos={photos} topics={topics} likedPhotos={likedPhotos} setLikedPhotos={setLikedPhotos} />
-      {/* Render the PhotoDetailsModal component */}
-      <PhotoDetailsModal />
+      <HomeRoute
+       photos={photos} 
+       topics={topics} 
+       likedPhotos={likedPhotos} 
+       setLikedPhotos={setLikedPhotos} />
+       setDisplayModal;={setDisplayModal}
+      {/* Conditional rendering of modal */}
+      {displayModal && <PhotoDetailsModal />} 
     </div>
   );
 };

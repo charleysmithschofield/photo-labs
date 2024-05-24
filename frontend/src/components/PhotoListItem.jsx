@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/PhotoListItem.scss';
 import PhotoFavButton from './PhotoFavButton';
 
-const PhotoListItem = ({ photo, toggleLike, likedPhotos }) => {
+const PhotoListItem = ({ photo, toggleLike, likedPhotos, onImageClick }) => {
   const { location, urls, user } = photo;
 
   // Check if the current photo is present in the likedPhotos array
@@ -16,7 +16,8 @@ const PhotoListItem = ({ photo, toggleLike, likedPhotos }) => {
         likedPhotos={likedPhotos}
         photoId={photo.id} // Pass photoId to identify the current photo
       />
-      <img src={urls.full} alt="Photo" className="photo-list__image" />
+      {/* Add onClick event handler for modal */}
+      <img src={urls.full} alt="Photo" className="photo-list__image" onClick={onImageClick} />
       <div className="photo-list__user-details">
         <img src={user.profile} alt="profile-photo" className="photo-list__user-profile" />
         <div className="photo-list__user-info">
