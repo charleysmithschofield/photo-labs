@@ -1,3 +1,4 @@
+// PhotoDetailsModal.jsx
 import React from 'react';
 
 import '../styles/PhotoDetailsModal.scss'
