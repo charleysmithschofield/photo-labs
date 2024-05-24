@@ -20,8 +20,8 @@ const App = () => {
        photos={photos} 
        topics={topics} 
        likedPhotos={likedPhotos} 
-       setLikedPhotos={setLikedPhotos} />
-       setDisplayModal;={setDisplayModal}
+       setLikedPhotos={setLikedPhotos}  
+       setDisplayModal={setDisplayModal} />
       {/* Conditional rendering of modal */}
       {displayModal && <PhotoDetailsModal />} 
     </div>
