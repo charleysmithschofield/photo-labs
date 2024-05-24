@@ -4,32 +4,12 @@ import PhotoList from './components/PhotoList';
 import './App.scss';
 
 const App = () => {
-  // Sample data for topics
-  const topics = [
-    {
-      id: "1",
-      slug: "topic-1",
-      title: "Nature",
-    },
-    {
-      id: "2",
-      slug: "topic-2",
-      title: "Travel",
-    },
-    {
-      id: "3",
-      slug: "topic-3",
-      title: "People",
-    },
-  ];
-
   return (
     <div className="App">
-      <TopicList topics={topics} />
+      <TopicList /> {/* No need to pass topics as prop anymore */}
       <PhotoList />
     </div>
   );
 };
 
 export default App;
-
