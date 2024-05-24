@@ -3,13 +3,15 @@ import React, { useCallback, useState } from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-function PhotoFavButton() {
+function PhotoFavButton({ photoId, toggleLike }) {
   // Set initial state to un-liked
   const [like, setLike] = useState(false);
 
   // Set state to opposite of the previous state when icon is clicked
   const handleClick = () => {
     setLike(prevLike => !prevLike);
+    // call toggleLike function from proprs with photoId
+    toggleLike(photoId);
   };
 
 
@@ -18,7 +20,8 @@ function PhotoFavButton() {
     <div className={"photo-list__fav-icon"} onClick={handleClick}>
       {/* Actual favorite icon */}
       <div className={"photo-list__fav-icon-svg"}>
-        <FavIcon selected={like} /> {/* Passes the like state as a prop to FavIcon */}
+        {/* Passes the like state as a prop to FavIcon */}
+        <FavIcon selected={like} /> 
       </div>
     </div>
   );
