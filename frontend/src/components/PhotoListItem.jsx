@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/PhotoListItem.scss';
 import PhotoFavButton from './PhotoFavButton';
 
-const PhotoListItem = ({ photo, toggleLike, likedPhotos, onImageClick }) => {
+const PhotoListItem = ({ photo, toggleLike, likedPhotos = [], onImageClick }) => {
   const { location, urls, user } = photo;
 
   // Check if the current photo is present in the likedPhotos array
