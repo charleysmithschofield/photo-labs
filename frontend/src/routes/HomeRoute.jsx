@@ -7,14 +7,21 @@ import topics from '../mocks/topics';
 import '../styles/HomeRoute.scss';
 
 const HomeRoute = () => {
-  const [likedPhotos, setLikedPhotos] = useState([]); // Initialize likedPhotos as an empty array
+  // state to hold liked photos
+  const [likedPhotos, setLikedPhotos] = useState([]); 
+  // state to control the display of the modal
   const [displayModal, setDisplayModal] = useState(false);
+  // state to hold the details of the selected photo
+  const [modalPhoto, setModalPhoto] = useState(null);
 
+  // function to handle liking and unliking a photo
   const toggleLike = function(photoId) {
+    // check if photoId is already in likedPhotos
     if (likedPhotos.includes(photoId)) {
       const updatedLikedPhotos = likedPhotos.filter(id => id !== photoId);
       setLikedPhotos(updatedLikedPhotos);
     } else {
+      // if photoId is not in likedPhotos, add it
       const updatedLikedPhotos = [...likedPhotos, photoId];
       setLikedPhotos(updatedLikedPhotos);
     }
@@ -27,9 +34,17 @@ const HomeRoute = () => {
         photos={photos}
         likedPhotos={likedPhotos}
         toggleLike={toggleLike}
-        setDisplayModal={setDisplayModal} // Make sure to pass down setDisplayModal to PhotoList
+        setDisplayModal={setDisplayModal} // Pass setDisplayModal function to PhotoList
+        setModalPhoto={setModalPhoto} // Pass setModalPhoto function to PhotoList
       />
-      {displayModal && <PhotoDetailsModal show={displayModal} onClose={() => setDisplayModal(false)} />}
+      {/* Conditionally render the modal if displayModal is true */}
+      {displayModal && (
+        <PhotoDetailsModal
+          show={displayModal}
+          onClose={() => setDisplayModal(false)} // Function to close the modal
+          photo={modalPhoto} // Pass the selected photo to the modal
+        />
+      )}
     </div>
   );
 };
