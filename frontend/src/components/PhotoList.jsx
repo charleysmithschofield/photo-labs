@@ -3,7 +3,7 @@ import PhotoListItem from './PhotoListItem';
 
 import '../styles/PhotoList.scss';
 
-const PhotoList = ({ photos, toggleLike, likedPhotos, setDisplayModal }) => {
+const PhotoList = ({ photos, toggleLike, likedPhotos, setDisplayModal, setModalPhoto }) => {
   const handleImageClick = () => {
     setDisplayModal(true);
   };
@@ -16,7 +16,7 @@ const PhotoList = ({ photos, toggleLike, likedPhotos, setDisplayModal }) => {
           photo={photo}
           toggleLike={toggleLike}
           likedPhotos={likedPhotos}
-          onImageClick={handleImageClick}
+          onImageClick={() => handleImageClick(photo)} // Pass photo to handleImageClick
         />
       ))}
     </ul>
