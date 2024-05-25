@@ -13,6 +13,8 @@ const PhotoDetailsModal = ({ show, onClose, photo, toggleLike, likedPhotos }) =>
     return null;
   }
 
+// 
+
   console.log('Photo details:', photo);
 
   return (
@@ -29,6 +31,7 @@ const PhotoDetailsModal = ({ show, onClose, photo, toggleLike, likedPhotos }) =>
         <img src={photo.urls.full} className="photo-details-modal__image"/>
         {/* Add header above similar photos */}
         <h2>Similar Photos</h2>
+        <PhotoList photos={Object.values(photo.similar_photos) } likedPhotos={[]}/>
       </div>
     </div>
   )
