@@ -5,8 +5,9 @@ import PhotoListItem from './PhotoListItem';
 import '../styles/PhotoList.scss';
 
 const PhotoList = ({ photos, toggleLike, likedPhotos, setDisplayModal, setModalPhoto }) => {
-  const handleImageClick = () => {
+  const handleImageClick = (photo) => {
     setDisplayModal(true);
+    setModalPhoto(photo);
   };
 
   return (
