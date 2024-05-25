@@ -1,18 +1,18 @@
-// PhotoDetailsModal.jsx
 import React from 'react';
 import PhotoList from 'components/PhotoList';
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoFavButton from 'components/PhotoFavButton';
+import '../styles/PhotoDetailsModal.scss';
 
-import '../styles/PhotoDetailsModal.scss'
-
-// destructure props to get show, onClose and photo
 const PhotoDetailsModal = ({ show, onClose, photo, toggleLike, likedPhotos }) => {
-  // if show is false, return null to not render the modal
   if (!show) {
     return null;
   }
 
+  // Correct extraction of similar photos
+  const similarPhotosArray = Object.values(photo.similar_photos || {});
+
+  console.log('Similar Photos Array', similarPhotosArray);
   console.log('Photo details:', photo);
 
   return (
@@ -26,13 +26,18 @@ const PhotoDetailsModal = ({ show, onClose, photo, toggleLike, likedPhotos }) =>
         photoId={photo.id}
       />
       <div className="photo-details-modal__image">
-        <img src={photo.urls.full} className="photo-details-modal__image"/>
-        {/* Add header above similar photos */}
+        <img src={photo.urls.full} alt={photo.description} className="photo-details-modal__image" />
         <h2>Similar Photos</h2>
+        <PhotoList
+          photos={similarPhotosArray}
+          toggleLike={toggleLike}
+          likedPhotos={likedPhotos}
+          setDisplayModal={() => {}}  // Add a no-op function to avoid breaking the code
+          setModalPhoto={() => {}}    // Add a no-op function to avoid breaking the code
+        />
       </div>
     </div>
-  )
+  );
 };
-
 
 export default PhotoDetailsModal;
