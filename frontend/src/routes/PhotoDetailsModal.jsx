@@ -23,14 +23,16 @@ const PhotoDetailsModal = ({ show, onClose, photo, toggleLike, likedPhotos }) =>
       <PhotoFavButton
         toggleLike={toggleLike}
         likedPhotos={likedPhotos}
-        photoId={photo.id} // Pass photoId to identify the current photo
+        photoId={photo.id}
       />
       <div className="photo-details-modal__image">
         <img src={photo.urls.full} className="photo-details-modal__image"/>
+        {/* Add header above similar photos */}
+        <h2>Similar Photos</h2>
       </div>
-      {/* Include PhotoFavButton component */}
     </div>
   )
 };
+
 
 export default PhotoDetailsModal;
