@@ -33,16 +33,17 @@ function reducer(state, action) {
   }
 }
 
+// Initial state
+const initialState = {
+  favoritePhotos: [],
+  photos: [],
+  topics: [],
+  selectedPhoto: null,
+  displayModal: false,
+  modalPhoto: null
+};
+
 const useApplicationData = () => {
-  // Initial state
-  const initialState = {
-    favoritePhotos: [],
-    photos: [],
-    topics: [],
-    selectedPhoto: null,
-    displayModal: false,
-    modalPhoto: null
-  };
 
   // useReducer hook
   const [state, dispatch] = useReducer(reducer, initialState);
