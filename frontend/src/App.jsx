@@ -6,29 +6,19 @@ import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import photos from './mocks/photos';
 import topics from './mocks/topics';
 import './App.scss';
+import useApplicationData from 'hooks/useApplicationData';
 
 
 const App = () => {
-  // state to hold Favorite photos
-  const [favoritePhotos, setFavorite] = useState([]);
-  // state to control the display of the modal
-  const [displayModal, setDisplayModal] = useState(false);
-  // state to hold the details of the selected photo
-  const [modalPhoto, setModalPhoto] = useState(null);
 
-
-  // function to handle liking and unliking a photo
-  const toggleLike = function(photoId) {
-    // check if photoId is already in favoritePhotos
-    if (favoritePhotos.includes(photoId)) {
-      const updatedfavoritePhotos = favoritePhotos.filter(id => id !== photoId);
-      setFavorite(updatedfavoritePhotos);
-    } else {
-      // if photoId is not in favoritePhotos, add it
-      const updatedfavoritePhotos = [...favoritePhotos, photoId];
-      setFavorite(updatedfavoritePhotos);
-    }
-  };
+  const {
+    favoritePhotos,
+    displayModal,
+    modalPhoto,
+    setDisplayModal,
+    setModalPhoto,
+    toggleLike
+  } = useApplicationData();
 
   return (
     <div className="App">
@@ -41,7 +31,7 @@ const App = () => {
         setModalPhoto={setModalPhoto}
         toggleLike={toggleLike}
       />
-      {/* Conditional rendering of modal */}
+      {/* Conditional Rendering of Modal */}
       {displayModal && (
         <PhotoDetailsModal
           show={displayModal}
@@ -54,5 +44,6 @@ const App = () => {
     </div>
   );
 };
+console.log()
 
 export default App;
