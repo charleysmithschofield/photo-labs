@@ -6,13 +6,13 @@ import photos from '../mocks/photos';
 import topics from '../mocks/topics';
 import '../styles/HomeRoute.scss';
 
-const HomeRoute = ({ toggleLike, likedPhotos, displayModal, modalPhoto, setDisplayModal, setModalPhoto }) => {
+const HomeRoute = ({ toggleLike, FavoritePhotos, displayModal, modalPhoto, setDisplayModal, setModalPhoto }) => {
   return (
     <div className="home-route">
-      <TopNavigationBar topics={topics} likedPhotos={likedPhotos} />
+      <TopNavigationBar topics={topics} FavoritePhotos={FavoritePhotos} />
       <PhotoList
         photos={photos}
-        likedPhotos={likedPhotos}
+        FavoritePhotos={FavoritePhotos}
         toggleLike={toggleLike}
         setDisplayModal={setDisplayModal}
         setModalPhoto={setModalPhoto}

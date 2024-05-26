@@ -9,8 +9,8 @@ import './App.scss';
 
 
 const App = () => {
-  // state to hold liked photos
-  const [likedPhotos, setLikedPhotos] = useState([]);
+  // state to hold Favorite photos
+  const [FavoritePhotos, setFavoritePhotos] = useState([]);
   // state to control the display of the modal
   const [displayModal, setDisplayModal] = useState(false);
   // state to hold the details of the selected photo
@@ -19,14 +19,14 @@ const App = () => {
 
   // function to handle liking and unliking a photo
   const toggleLike = function(photoId) {
-    // check if photoId is already in likedPhotos
-    if (likedPhotos.includes(photoId)) {
-      const updatedLikedPhotos = likedPhotos.filter(id => id !== photoId);
-      setLikedPhotos(updatedLikedPhotos);
+    // check if photoId is already in FavoritePhotos
+    if (FavoritePhotos.includes(photoId)) {
+      const updatedFavoritePhotos = FavoritePhotos.filter(id => id !== photoId);
+      setFavoritePhotos(updatedFavoritePhotos);
     } else {
-      // if photoId is not in likedPhotos, add it
-      const updatedLikedPhotos = [...likedPhotos, photoId];
-      setLikedPhotos(updatedLikedPhotos);
+      // if photoId is not in FavoritePhotos, add it
+      const updatedFavoritePhotos = [...FavoritePhotos, photoId];
+      setFavoritePhotos(updatedFavoritePhotos);
     }
   };
 
@@ -36,7 +36,7 @@ const App = () => {
       <HomeRoute
         photos={photos}
         topics={topics}
-        likedPhotos={likedPhotos}
+        FavoritePhotos={FavoritePhotos}
         setDisplayModal={setDisplayModal}
         setModalPhoto={setModalPhoto}
         toggleLike={toggleLike}
@@ -48,7 +48,7 @@ const App = () => {
           onClose={() => setDisplayModal(false)}
           photo={modalPhoto} 
           toggleLike={toggleLike} 
-          likedPhotos={likedPhotos}
+          FavoritePhotos={FavoritePhotos}
         />
       )}
     </div>
