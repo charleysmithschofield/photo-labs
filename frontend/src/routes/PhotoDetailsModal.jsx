@@ -1,3 +1,4 @@
+// PhotoDetailsModal.jsx
 import React from 'react';
 import PhotoList from 'components/PhotoList';
 import closeSymbol from '../assets/closeSymbol.svg';

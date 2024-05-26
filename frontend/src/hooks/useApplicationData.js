@@ -1,3 +1,4 @@
+// useApplicationData.js
 import { useReducer } from "react";
 
 /* Define app level actions */
@@ -45,11 +46,31 @@ const useApplicationData = () => {
 
   // useReducer hook
   const [state, dispatch] = useReducer(reducer, initialState);
-  
+
+  const setDisplayModal = (display) => {
+    dispatch({ type: ACTIONS.DISPLAY_MODAL, payload: { display } });
+  };
+
+  const setModalPhoto = (photo) => {
+    dispatch({ type: ACTIONS.SET_MODAL_PHOTO, payload: { photo } });
+  };
+
+  const toggleLike = (id) => {
+    if (state.favoritePhotos.includes(id)) {
+      dispatch({ type: ACTIONS.FAV_PHOTO_REMOVED, payload: { id } });
+    } else {
+      dispatch({ type: ACTIONS.FAV_PHOTO_ADDED, payload: { id } });
+    }
+  };
+
   // Other functions and state variables...
   return {
-    state,
-    dispatch,
+    favoritePhotos: state.favoritePhotos,
+    displayModal: state.displayModal,
+    modalPhoto: state.modalPhoto,
+    setDisplayModal,
+    setModalPhoto,
+    toggleLike
   };
 };
 
