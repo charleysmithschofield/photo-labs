@@ -4,6 +4,9 @@ import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton({ photoId, toggleLike }) {
+
+  console.log({ photoId, toggleLike });
+
   // Set initial state to un-liked
   const [like, setLike] = useState(false);
 
