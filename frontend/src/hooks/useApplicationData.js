@@ -1,37 +1,55 @@
-// useApplicationData.js (Custom Hook)
+import { useReducer } from "react";
 
-import { useState } from "react";
+/* Define app level actions */
+export const ACTIONS = {
+  FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
+  FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
+  SELECT_PHOTO: 'SELECT_PHOTO',
+  DISPLAY_MODAL: 'DISPLAY_MODAL',
+  SET_MODAL_PHOTO: 'SET_MODAL_PHOTO'
+}
+
+function reducer(state, action) {
+  switch (action.type) {
+    case ACTIONS.FAV_PHOTO_ADDED:
+      if (state.favoritePhotos.includes(action.payload.id)) {
+        return state; 
+      } else {
+        return { ...state, favoritePhotos: [...state.favoritePhotos, action.payload.id] };
+      }
+    case ACTIONS.FAV_PHOTO_REMOVED:
+      return { ...state, favoritePhotos: state.favoritePhotos.filter(id => id !== action.payload.id) };
+    case ACTIONS.SELECT_PHOTO:
+      return { ...state, selectedPhoto: action.payload.photo };
+    case ACTIONS.DISPLAY_MODAL:
+      return { ...state, displayModal: action.payload.display };
+    case ACTIONS.SET_MODAL_PHOTO:
+      return { ...state, modalPhoto: action.payload.photo };
+    default:
+      throw new Error(
+        `Tried to reduce with unsupported action type: ${action.type}`
+      );
+  }
+}
 
 const useApplicationData = () => {
-
-  // state to hold Favorite photos
-  const [favoritePhotos, setFavorite] = useState([]);
-  // state to control the display of the modal
-  const [displayModal, setDisplayModal] = useState(false);
-  // state to hold the details of the selected photo
-  const [modalPhoto, setModalPhoto] = useState(null);
-
-
-  // function to handle liking and unliking a photo
-  const toggleLike = function(photoId) {
-    // check if photoId is already in favoritePhotos
-    if (favoritePhotos.includes(photoId)) {
-      const updatedfavoritePhotos = favoritePhotos.filter(id => id !== photoId);
-      setFavorite(updatedfavoritePhotos);
-    } else {
-      // if photoId is not in favoritePhotos, add it
-      const updatedfavoritePhotos = [...favoritePhotos, photoId];
-      setFavorite(updatedfavoritePhotos);
-    }
+  // Initial state
+  const initialState = {
+    favoritePhotos: [],
+    photos: [],
+    topics: [],
+    selectedPhoto: null,
+    displayModal: false,
+    modalPhoto: null
   };
 
+  // useReducer hook
+  const [state, dispatch] = useReducer(reducer, initialState);
+  
+  // Other functions and state variables...
   return {
-    favoritePhotos,
-    displayModal,
-    modalPhoto,
-    setDisplayModal,
-    setModalPhoto,
-    toggleLike
+    state,
+    dispatch,
   };
 };
 
