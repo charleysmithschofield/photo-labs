@@ -86,7 +86,7 @@
 
 .photo-details-modal__fav-button {
   position: absolute;
-  left: 20px; /* Adjust as needed to move it to the right */
+  left: 25px; /* Adjust as needed to move it to the right */
   top: 50px; /* Adjust as needed to move it down */
 }
 
@@ -95,3 +95,10 @@
   margin-left: 20px; /* Add margin for spacing */
 }
 
+.photo-details-modalsimilar-photos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px; /* Add margin for spacing */
+}
