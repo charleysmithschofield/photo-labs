@@ -1,4 +1,4 @@
-// useApplicationData.js (Custom Hook)
+// useApplicationData.jsx (Custom Hook)
 
 import { useState } from "react";
 
