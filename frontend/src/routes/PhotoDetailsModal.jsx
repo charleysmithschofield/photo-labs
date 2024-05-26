@@ -12,8 +12,13 @@ const PhotoDetailsModal = ({ show, onClose, photo, toggleLike, likedPhotos }) =>
   // Correct extraction of similar photos
   const similarPhotosArray = Object.values(photo.similar_photos || {});
 
+  const {user} = photo;
+  const {location} = photo;
+
   console.log('Similar Photos Array', similarPhotosArray);
   console.log('Photo details:', photo);
+  console.log('user', user);
+  console.log('lcoation', location);
 
   return (
     <div className="photo-details-modal">
@@ -34,6 +39,22 @@ const PhotoDetailsModal = ({ show, onClose, photo, toggleLike, likedPhotos }) =>
       <div className="photo-details-modal__main-photo">
         <img src={photo.urls.full} alt={photo.description} className="photo-details-modal__image" />
       </div>
+
+      {/* Select Photo User Info */}
+      {user && (
+        <div className="photo-details-modal__photographer-details">
+          <img src={user.profile} alt="profile-photo" className="photo-details-modal__photographer-profile" />
+          <div className="photo-details-modal__photographer-info">
+            <div>
+              <span className="photo-details-modal__username">{user.username}</span>
+            </div>
+            <div className="photo-details-modal__photographer-location">
+              <span>{location.city}</span>
+              <span>{location.country}</span>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Similar Photos */}
       <div className="photo-details-modal__similar-photos">
