@@ -40,6 +40,7 @@ const PhotoDetailsModal = ({ show, onClose, photo, toggleLike, favoritePhotos })
         <img src={photo.urls.full} alt={photo.description} className="photo-details-modal__image" />
       </div>
 
+
       {/* Select Photo User Info */}
       {user && (
         <div className="photo-details-modal__photographer-details">
