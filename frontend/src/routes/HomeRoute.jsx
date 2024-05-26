@@ -1,5 +1,4 @@
-// HomeRoute.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import TopNavigationBar from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
@@ -22,9 +21,8 @@ const HomeRoute = ({ toggleLike, likedPhotos, displayModal, modalPhoto, setDispl
       {displayModal && (
         <PhotoDetailsModal
           show={displayModal}
-          onClose={() => setDisplayModal(false)}
-          photo={modalPhoto}
-          toggleLike={toggleLike}
+          onClose={() => setDisplayModal(false)} // Function to close the modal
+          photo={modalPhoto} // Pass the selected photo to the modal
         />
       )}
     </div>

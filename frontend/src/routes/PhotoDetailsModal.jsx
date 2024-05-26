@@ -1,13 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PhotoList from 'components/PhotoList';
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoFavButton from 'components/PhotoFavButton';
 import '../styles/PhotoDetailsModal.scss';
 
 const PhotoDetailsModal = ({ show, onClose, photo, toggleLike, likedPhotos }) => {
-  const [displayModal, setDisplayModal] = useState(false);
-  const [modalPhoto, setModalPhoto] = useState(null);
-
   if (!show) {
     return null;
   }
@@ -45,13 +42,10 @@ const PhotoDetailsModal = ({ show, onClose, photo, toggleLike, likedPhotos }) =>
           photos={similarPhotosArray}
           toggleLike={toggleLike}
           likedPhotos={likedPhotos}
-          setDisplayModal={setDisplayModal} 
-          setModalPhoto={setModalPhoto}  
         />
       </div>
     </div>
   );
 };
-
 
 export default PhotoDetailsModal;
