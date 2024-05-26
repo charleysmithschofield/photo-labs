@@ -8,6 +8,8 @@ const PhotoListItem = ({ photo, toggleLike, likedPhotos = [], onImageClick }) =>
   // Check if the current photo is present in the likedPhotos array
   const isLiked = likedPhotos.includes(photo.id);
 
+  console.log(toggleLike);
+  
   return (
     <div className="photo-list__item">
       {/* Pass toggleLike function and likedPhotos array to PhotoFavButton */}
