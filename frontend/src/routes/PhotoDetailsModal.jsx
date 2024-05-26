@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PhotoList from 'components/PhotoList';
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoFavButton from 'components/PhotoFavButton';
 import '../styles/PhotoDetailsModal.scss';
 
 const PhotoDetailsModal = ({ show, onClose, photo, toggleLike, likedPhotos }) => {
+  const [displayModal, setDisplayModal] = useState(false);
+  const [modalPhoto, setModalPhoto] = useState(null);
+
   if (!show) {
     return null;
   }
@@ -20,24 +23,35 @@ const PhotoDetailsModal = ({ show, onClose, photo, toggleLike, likedPhotos }) =>
       <button className="photo-details-modal__close-button" onClick={onClose}>
         <img src={closeSymbol} alt="close symbol" />
       </button>
-      <PhotoFavButton
-        toggleLike={toggleLike}
-        likedPhotos={likedPhotos}
-        photoId={photo.id}
-      />
-      <div className="photo-details-modal__image">
+
+      {/* PhotoFavButton component */}
+      <div className="photo-details-modal__fav-button">
+        <PhotoFavButton
+          toggleLike={toggleLike}
+          likedPhotos={likedPhotos}
+          photoId={photo.id}
+        />
+      </div>
+
+      {/* Main photo image */}
+      <div className="photo-details-modal__main-photo">
         <img src={photo.urls.full} alt={photo.description} className="photo-details-modal__image" />
+      </div>
+
+      {/* Similar Photos */}
+      <div className="photo-details-modal__similar-photos">
         <h2>Similar Photos</h2>
         <PhotoList
           photos={similarPhotosArray}
           toggleLike={toggleLike}
           likedPhotos={likedPhotos}
-          setDisplayModal={() => {}}  // Add a no-op function to avoid breaking the code
-          setModalPhoto={() => {}}    // Add a no-op function to avoid breaking the code
+          setDisplayModal={setDisplayModal} 
+          setModalPhoto={setModalPhoto}  
         />
       </div>
     </div>
   );
 };
+
 
 export default PhotoDetailsModal;
