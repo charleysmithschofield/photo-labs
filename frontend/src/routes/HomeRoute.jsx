@@ -19,15 +19,6 @@ const HomeRoute = ({ toggleLike, likedPhotos, displayModal, modalPhoto, setDispl
         setDisplayModal={setDisplayModal}
         setModalPhoto={setModalPhoto}
       />
-      {/* Conditionally render the modal if displayModal is true */}
-      {displayModal && (
-        <PhotoDetailsModal
-          show={displayModal}
-          onClose={() => setDisplayModal(false)}
-          photo={modalPhoto}
-          toggleLike={toggleLike}
-        />
-      )}
     </div>
   );
 };
