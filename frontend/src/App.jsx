@@ -37,7 +37,6 @@ const App = () => {
         photos={photos}
         topics={topics}
         likedPhotos={likedPhotos}
-        setLikedPhotos={setLikedPhotos}
         setDisplayModal={setDisplayModal}
         setModalPhoto={setModalPhoto}
         toggleLike={toggleLike}
