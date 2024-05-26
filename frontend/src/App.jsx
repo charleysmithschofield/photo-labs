@@ -6,7 +6,7 @@ import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import photos from './mocks/photos';
 import topics from './mocks/topics';
 import './App.scss';
-import useApplicationData from 'components/useApplicationData';
+import useApplicationData from 'hooks/useApplicationData';
 
 
 const App = () => {
