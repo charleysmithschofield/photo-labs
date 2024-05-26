@@ -5,9 +5,9 @@ import FavBadge from './FavBadge';
 
 import '../styles/TopNavigationBar.scss'
 
-const TopNavigation = ({ topics, likedPhotos }) => {
-  // Check if likedPhotos has at least one photo
-  const isFavPhotoExist = likedPhotos && likedPhotos.length !== 0;
+const TopNavigation = ({ topics, FavoritePhotos }) => {
+  // Check if FavoritePhotos has at least one photo
+  const isFavPhotoExist = FavoritePhotos && FavoritePhotos.length !== 0;
 
   return (
     <div className="top-nav-bar">

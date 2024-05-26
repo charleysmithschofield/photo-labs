@@ -7,7 +7,7 @@ function PhotoFavButton({ photoId, toggleLike }) {
 
   console.log({ photoId, toggleLike });
 
-  // Set initial state to un-liked
+  // Set initial state to un-Favorited photos
   const [like, setLike] = useState(false);
 
   // Set state to opposite of the previous state when icon is clicked
