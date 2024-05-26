@@ -4,7 +4,7 @@ import PhotoListItem from './PhotoListItem';
 
 import '../styles/PhotoList.scss';
 
-const PhotoList = ({ photos, toggleLike, FavoritePhotos, setDisplayModal, setModalPhoto }) => {
+const PhotoList = ({ photos, toggleLike, favoritePhotos, setDisplayModal, setModalPhoto }) => {
   const handleImageClick = (photo) => {
     setDisplayModal(true);
     setModalPhoto(photo);
@@ -17,7 +17,7 @@ const PhotoList = ({ photos, toggleLike, FavoritePhotos, setDisplayModal, setMod
           key={photo.id}
           photo={photo}
           toggleLike={toggleLike}
-          FavoritePhotos={FavoritePhotos}
+          favoritePhotos={favoritePhotos}
           onImageClick={() => handleImageClick(photo)} // Pass photo to handleImageClick
         />
       ))}

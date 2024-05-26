@@ -4,7 +4,7 @@ import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoFavButton from 'components/PhotoFavButton';
 import '../styles/PhotoDetailsModal.scss';
 
-const PhotoDetailsModal = ({ show, onClose, photo, toggleLike, FavoritePhotos }) => {
+const PhotoDetailsModal = ({ show, onClose, photo, toggleLike, favoritePhotos }) => {
   if (!show) {
     return null;
   }
@@ -30,7 +30,7 @@ const PhotoDetailsModal = ({ show, onClose, photo, toggleLike, FavoritePhotos })
       <div className="photo-details-modal__fav-button">
         <PhotoFavButton
           toggleLike={toggleLike}
-          FavoritePhotos={FavoritePhotos}
+          favoritePhotos={favoritePhotos}
           photoId={photo.id}
         />
       </div>
@@ -49,8 +49,8 @@ const PhotoDetailsModal = ({ show, onClose, photo, toggleLike, FavoritePhotos })
               <span className="photo-details-modal__username">{user.username}</span>
             </div>
             <div className="photo-details-modal__photographer-location">
-              <span>{location.city}</span>
-              <span>{location.country}</span>
+              <span>{location.city} </span>
+              <span>{location.country} </span>
             </div>
           </div>
         </div>
@@ -62,7 +62,7 @@ const PhotoDetailsModal = ({ show, onClose, photo, toggleLike, FavoritePhotos })
         <PhotoList
           photos={similarPhotosArray}
           toggleLike={toggleLike}
-          FavoritePhotos={FavoritePhotos}
+          favoritePhotos={favoritePhotos}
         />
       </div>
     </div>

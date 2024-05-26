@@ -3,20 +3,20 @@ import React from 'react';
 import '../styles/PhotoListItem.scss';
 import PhotoFavButton from './PhotoFavButton';
 
-const PhotoListItem = ({ photo, toggleLike, FavoritePhotos = [], onImageClick }) => {
+const PhotoListItem = ({ photo, toggleLike, favoritePhotos = [], onImageClick }) => {
   const { location, urls, user } = photo;
 
-  // Check if the current photo is present in the FavoritePhotos array
-  const isFavorite = FavoritePhotos.includes(photo.id);
+  // Check if the current photo is present in the favoritePhotos array
+  const isFavorite = favoritePhotos.includes(photo.id);
 
   console.log(toggleLike);
   
   return (
     <div className="photo-list__item">
-      {/* Pass toggleLike function and FavoritePhotos array to PhotoFavButton */}
+      {/* Pass toggleLike function and favoritePhotos array to PhotoFavButton */}
       <PhotoFavButton
         toggleLike={toggleLike}
-        FavoritePhotos={FavoritePhotos}
+        favoritePhotos={favoritePhotos}
         photoId={photo.id} // Pass photoId to identify the current photo
       />
       {/* Add onClick event handler for modal */}
