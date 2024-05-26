@@ -30,6 +30,7 @@ const HomeRoute = ({ toggleLike, likedPhotos }) => {
           show={displayModal}
           onClose={() => setDisplayModal(false)} // Function to close the modal
           photo={modalPhoto} // Pass the selected photo to the modal
+          toggleLike={toggleLike}
         />
       )}
     </div>
