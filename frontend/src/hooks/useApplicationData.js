@@ -1,31 +1,47 @@
 // useApplicationData.js (Custom Hook)
 
-import { useState } from "react";
+import { useReducer } from "react";
+
+/* insert app levels actions below */
+export const ACTIONS = {
+  FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
+  FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
+  SET_PHOTO_DATA: 'SET_PHOTO_DATA',
+  SET_TOPIC_DATA: 'SET_TOPIC_DATA',
+  SELECT_PHOTO: 'SELECT_PHOTO',
+  DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS'
+}
+
+function reducer(state, action) {
+  switch (action.type) {
+    case FAV_PHOTO_ADDED:
+    // Check if the photo is already in the favoritePhotos array
+    if (state.favoritePhotos.includes(action.payload.id)) {
+      return state; // if already favorited, return the current state
+    } else {
+      // If not already favorited, add the phot to the favoritePhotos array
+      return {...state, favoritePhotos: state.favoritePhotos.filter(id => id !== action.payload.id) };
+    }
+    default:
+      throw new Error(
+        `Tried to reduce with unsupported action type: ${action.type}`
+      );
+  }
+};
 
 const useApplicationData = () => {
-
-  // state to hold Favorite photos
-  const [favoritePhotos, setFavorite] = useState([]);
-  // state to control the display of the modal
-  const [displayModal, setDisplayModal] = useState(false);
-  // state to hold the details of the selected photo
-  const [modalPhoto, setModalPhoto] = useState(null);
-
-
-  // function to handle liking and unliking a photo
-  const toggleLike = function(photoId) {
-    // check if photoId is already in favoritePhotos
-    if (favoritePhotos.includes(photoId)) {
-      const updatedfavoritePhotos = favoritePhotos.filter(id => id !== photoId);
-      setFavorite(updatedfavoritePhotos);
-    } else {
-      // if photoId is not in favoritePhotos, add it
-      const updatedfavoritePhotos = [...favoritePhotos, photoId];
-      setFavorite(updatedfavoritePhotos);
-    }
+  // Initial state
+  const initialState = {
+    favoritePhotos: [],
+    displayModal: false,
+    modalPhoto: null
   };
 
+  // useReducer hook
+  const [state, dispatch] = useReducer(reducer, initialState);
+
   return {
+    ...state,
     favoritePhotos,
     displayModal,
     modalPhoto,
