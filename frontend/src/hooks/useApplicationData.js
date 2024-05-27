@@ -71,7 +71,7 @@ const useApplicationData = () => {
   }, []);
 
   return {
-    ...state,
+    state,
     setDisplayModal,
     setModalPhoto,
     toggleLike,
