@@ -7,13 +7,15 @@ import '../styles/HomeRoute.scss';
 
 
 
-const HomeRoute = ({ toggleLike, favoritePhotos, displayModal, modalPhoto, setDisplayModal, setModalPhoto, photoData }) => {
+const HomeRoute = ({ toggleLike, favoritePhotos, displayModal, modalPhoto, setDisplayModal, setModalPhoto }) => {
+
+
   return (
     <div className="home-route">
       <TopNavigationBar favoritePhotos={favoritePhotos} />
       {/* Pass photoData to PhotoList as photos prop */}
       <PhotoList
-        photos={photoData}
+        photos={state.photoData}
         favoritePhotos={favoritePhotos}
         toggleLike={toggleLike}
         setDisplayModal={setDisplayModal}

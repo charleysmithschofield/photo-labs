@@ -1,14 +1,16 @@
 // PhotoList.jsx
 import React from 'react';
 import PhotoListItem from './PhotoListItem';
-
-
-
 import '../styles/PhotoList.scss';
 
-// PhotoList.jsx
 const PhotoList = ({ photos, toggleLike, favoritePhotos, setDisplayModal, setModalPhoto }) => {
   console.log('photos:', photos); // Add this line to check photos
+
+  const handleImageClick = (photo) => {
+    setModalPhoto(photo);
+    setDisplayModal(true);
+  };
+
   return (
     <ul className="photo-list">
       {photos && photos.map(photo => (

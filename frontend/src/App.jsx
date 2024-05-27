@@ -12,6 +12,11 @@ const App = () => {
     toggleLike,
   } = useApplicationData();
 
+   // Ensure state is not undefined before accessing its properties
+   if (!state) {
+    return <div>Loading...</div>;
+  }
+  
   return (
     <div className="App">
       <HomeRoute
