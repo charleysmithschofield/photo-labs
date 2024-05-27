@@ -1,49 +1,39 @@
 // App.jsx
 import React from 'react';
-import { useState } from 'react';
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
-import photos from './mocks/photos';
-import topics from './mocks/topics';
-import './App.scss';
 import useApplicationData from 'hooks/useApplicationData';
 
-
 const App = () => {
-
   const {
-    favoritePhotos,
-    displayModal,
-    modalPhoto,
+    state, // Now extracting the entire state object
     setDisplayModal,
     setModalPhoto,
-    toggleLike
+    toggleLike,
   } = useApplicationData();
 
   return (
     <div className="App">
-      {/* Render the HomeRoute component */}
       <HomeRoute
-        photos={photos}
-        topics={topics}
-        favoritePhotos={favoritePhotos}
+        photos={state.photoData} // Using state.photoData
+        favoritePhotos={state.favoritePhotos} // Adjust accordingly if favoritePhotos is also part of the state
         setDisplayModal={setDisplayModal}
         setModalPhoto={setModalPhoto}
         toggleLike={toggleLike}
+        displayModal={state.displayModal} // Assuming displayModal is a state attribute
+        modalPhoto={state.modalPhoto} // Assuming modalPhoto is a state attribute
       />
-      {/* Conditional Rendering of Modal */}
-      {displayModal && (
+      {state.displayModal && ( // Assuming displayModal is managed in state
         <PhotoDetailsModal
-          show={displayModal}
+          show={state.displayModal} // Using state to manage display
           onClose={() => setDisplayModal(false)}
-          photo={modalPhoto} 
-          toggleLike={toggleLike} 
-          favoritePhotos={favoritePhotos}
+          photo={state.modalPhoto} // Assuming modalPhoto is managed in state
+          toggleLike={toggleLike}
+          favoritePhotos={state.favoritePhotos} // Adjust accordingly
         />
       )}
     </div>
   );
 };
-console.log()
 
 export default App;

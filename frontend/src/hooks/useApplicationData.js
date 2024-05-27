@@ -1,17 +1,15 @@
 // useApplicationData.js
-// useApplicationData.js
-import { useReducer } from "react";
+import { useReducer, useEffect } from "react";
 
-/* Define app level actions */
 export const ACTIONS = {
   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
   FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
   SELECT_PHOTO: 'SELECT_PHOTO',
   DISPLAY_MODAL: 'DISPLAY_MODAL',
-  SET_MODAL_PHOTO: 'SET_MODAL_PHOTO'
+  SET_MODAL_PHOTO: 'SET_MODAL_PHOTO',
+  SET_PHOTO_DATA: 'SET_PHOTO_DATA'
 };
 
-/* Reducer function to handle state changes based on dispatched actions */
 function reducer(state, action) {
   switch (action.type) {
     case ACTIONS.FAV_PHOTO_ADDED:
@@ -24,59 +22,59 @@ function reducer(state, action) {
       return { ...state, displayModal: action.payload.display };
     case ACTIONS.SET_MODAL_PHOTO:
       return { ...state, modalPhoto: action.payload.photo };
+    case ACTIONS.SET_PHOTO_DATA:
+      return { ...state, photoData: action.payload };
     default:
-      // Return current state for unsupported action types
       return state;
   }
 }
 
-// Initial state of the application
 const initialState = {
   favoritePhotos: [],
-  photos: [],
-  topics: [],
   selectedPhoto: null,
   displayModal: false,
-  modalPhoto: null
+  modalPhoto: null,
+  photoData: [],
 };
 
-/* Custom hook to manage application state using useReducer */
 const useApplicationData = () => {
-  // useReducer hook to manage state based on actions
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  /* Helper functions to dispatch actions with appropriate payloads */
-
   const setDisplayModal = (display) => {
-    dispatch(createDisplayModalAction(display));
+    dispatch({ type: ACTIONS.DISPLAY_MODAL, payload: { display } });
   };
 
   const setModalPhoto = (photo) => {
-    dispatch(createSetModalPhotoAction(photo));
+    dispatch({ type: ACTIONS.SET_MODAL_PHOTO, payload: { photo } });
   };
 
   const toggleLike = (id) => {
     if (state.favoritePhotos.includes(id)) {
-      dispatch(createFavPhotoRemovedAction(id));
+      dispatch({ type: ACTIONS.FAV_PHOTO_REMOVED, payload: { id } });
     } else {
-      dispatch(createFavPhotoAddedAction(id));
+      dispatch({ type: ACTIONS.FAV_PHOTO_ADDED, payload: { id } });
     }
   };
 
-  // Action creators to create payloads for dispatching actions
-  const createFavPhotoAddedAction = (id) => ({ type: ACTIONS.FAV_PHOTO_ADDED, payload: { id } });
-  const createFavPhotoRemovedAction = (id) => ({ type: ACTIONS.FAV_PHOTO_REMOVED, payload: { id } });
-  const createDisplayModalAction = (display) => ({ type: ACTIONS.DISPLAY_MODAL, payload: { display } });
-  const createSetModalPhotoAction = (photo) => ({ type: ACTIONS.SET_MODAL_PHOTO, payload: { photo } });
+  useEffect(() => {
+    const fetchPhotoData = async () => {
+      try {
+        const response = await fetch("/api/photos");
+        const data = await response.json();
+        dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data });
+      } catch (error) {
+        console.error("Error fetching photo data:", error);
+      }
+    };
 
-  // Return state and action dispatchers for use in components
+    fetchPhotoData();
+  }, []);
+
   return {
-    favoritePhotos: state.favoritePhotos,
-    displayModal: state.displayModal,
-    modalPhoto: state.modalPhoto,
+    ...state,
     setDisplayModal,
     setModalPhoto,
-    toggleLike
+    toggleLike,
   };
 };
 
