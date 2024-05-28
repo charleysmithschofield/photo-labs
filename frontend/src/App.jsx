@@ -5,36 +5,37 @@ import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import useApplicationData from 'hooks/useApplicationData';
 
 const App = () => {
+  // Use custom hook to get application state and action functions
   const {
-    state, // Now extracting the entire state object
+    state,
     setDisplayModal,
     setModalPhoto,
     toggleLike,
   } = useApplicationData();
 
-   // Ensure state is not undefined before accessing its properties
-   if (!state) {
-    return <div>Loading...</div>;
-  }
-  
   return (
     <div className="App">
-      <HomeRoute
-        photos={state.photoData} // Using state.photoData
-        favoritePhotos={state.favoritePhotos} // Adjust accordingly if favoritePhotos is also part of the state
-        setDisplayModal={setDisplayModal}
-        setModalPhoto={setModalPhoto}
-        toggleLike={toggleLike}
-        displayModal={state.displayModal} // Assuming displayModal is a state attribute
-        modalPhoto={state.modalPhoto} // Assuming modalPhoto is a state attribute
-      />
-      {state.displayModal && ( // Assuming displayModal is managed in state
-        <PhotoDetailsModal
-          show={state.displayModal} // Using state to manage display
-          onClose={() => setDisplayModal(false)}
-          photo={state.modalPhoto} // Assuming modalPhoto is managed in state
+      {state.photoData.length > 0 ? ( // Check if photoData is not empty
+        <HomeRoute
+          photos={state.photoData}
+          favoritePhotos={state.favoritePhotos}
+          setDisplayModal={setDisplayModal}
+          setModalPhoto={setModalPhoto}
           toggleLike={toggleLike}
-          favoritePhotos={state.favoritePhotos} // Adjust accordingly
+          displayModal={state.displayModal}
+          modalPhoto={state.modalPhoto}
+          topics={state.topicData} 
+        />
+      ) : (
+        <div>Loading photos...</div> 
+      )}
+      {state.displayModal && (
+        <PhotoDetailsModal
+          show={state.displayModal}
+          onClose={() => setDisplayModal(false)}
+          photo={state.modalPhoto}
+          toggleLike={toggleLike}
+          favoritePhotos={state.favoritePhotos}
         />
       )}
     </div>

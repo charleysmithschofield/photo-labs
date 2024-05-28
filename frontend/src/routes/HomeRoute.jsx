@@ -6,27 +6,45 @@ import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import '../styles/HomeRoute.scss';
 
 
-
-const HomeRoute = ({ toggleLike, favoritePhotos, displayModal, modalPhoto, setDisplayModal, setModalPhoto }) => {
-
-
+const HomeRoute = ({
+  photos,
+  toggleLike,
+  favoritePhotos,
+  displayModal,
+  modalPhoto,
+  setDisplayModal,
+  setModalPhoto,
+  topics
+}) => {
   return (
     <div className="home-route">
       <TopNavigationBar favoritePhotos={favoritePhotos} />
-      {/* Pass photoData to PhotoList as photos prop */}
-      <PhotoList
-        photos={state.photoData}
-        favoritePhotos={favoritePhotos}
-        toggleLike={toggleLike}
-        setDisplayModal={setDisplayModal}
-        setModalPhoto={setModalPhoto}
-      />
-      {/* Conditionally render the modal if displayModal is true */}
+      {photos.length > 0 ? ( // Check if photos are available
+        <PhotoList
+          photos={photos}
+          favoritePhotos={favoritePhotos}
+          toggleLike={toggleLike}
+          setDisplayModal={setDisplayModal}
+          setModalPhoto={setModalPhoto}
+        />
+      ) : (
+        <div>No photos available</div>
+      )}
+      {/* Display topic data */}
+       {topics.length > 0 && (
+        <div className="topics">
+          {topics.map((topic) => ( // Add parentheses here
+            <div key={topic.id} className="topic">
+              {topic.name}
+            </div>
+          ))} {/* <-- Closing parentheses here */}
+        </div>
+      )}
       {displayModal && (
         <PhotoDetailsModal
           show={displayModal}
-          onClose={() => setDisplayModal(false)} // Function to close the modal
-          photo={modalPhoto} // Pass the selected photo to the modal
+          onClose={() => setDisplayModal(false)}
+          photo={modalPhoto}
         />
       )}
     </div>

@@ -10,7 +10,7 @@ const PhotoDetailsModal = ({ show, onClose, photo, toggleLike, favoritePhotos })
     return null;
   }
 
-  // Correct extraction of similar photos
+  // Convert similar photos object into an array
   const similarPhotosArray = Object.values(photo.similar_photos || {});
 
   const {user} = photo;
@@ -19,7 +19,7 @@ const PhotoDetailsModal = ({ show, onClose, photo, toggleLike, favoritePhotos })
   console.log('Similar Photos Array', similarPhotosArray);
   console.log('Photo details:', photo);
   console.log('user', user);
-  console.log('lcoation', location);
+  console.log('location', location);
 
   return (
     <div className="photo-details-modal">
@@ -71,4 +71,4 @@ const PhotoDetailsModal = ({ show, onClose, photo, toggleLike, favoritePhotos })
   );
 };
 
-export default PhotoDetailsModal;
+export default PhotoDetailsModal; 
