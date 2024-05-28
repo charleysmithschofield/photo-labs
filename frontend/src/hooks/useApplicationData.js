@@ -8,7 +8,8 @@ export const ACTIONS = {
   DISPLAY_MODAL: 'DISPLAY_MODAL',
   SET_MODAL_PHOTO: 'SET_MODAL_PHOTO',
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
-  SET_TOPIC_DATA: 'SET_TOPIC_DATA'
+  SET_TOPIC_DATA: 'SET_TOPIC_DATA',
+  SET_ERROR: 'SET_ERROR'
 };
 
 // Reducer function to manage state based on action types 
@@ -25,9 +26,11 @@ function reducer(state, action) {
     case ACTIONS.SET_MODAL_PHOTO:
       return { ...state, modalPhoto: action.payload.photo };
     case ACTIONS.SET_PHOTO_DATA:
-      return { ...state, photoData: action.payload };
+      return { ...state, photoData: action.payload, photoDataError: null };
     case ACTIONS.SET_TOPIC_DATA:
-      return { ...state, topicData: action.payload };
+      return { ...state, topicData: action.payload, topicDataError: null };
+    case ACTIONS.SET_ERROR:
+      return { ...state, [action.payload.key]: action.payload.error }; // Set specific error state
     default:
       return state;
   }
@@ -40,7 +43,9 @@ const initialState = {
   displayModal: false,
   modalPhoto: null,
   photoData: [],
+  photoDataError: null,
   topicData: [],
+  topicDataError: null
 };
 
 // Custom hook to manage state and actions
@@ -66,7 +71,7 @@ const useApplicationData = () => {
     }
   };
 
-  // useEffect hook to fetch data when the
+  // useEffect hook to fetch data when the photo data from the API
   useEffect(() => {
     const fetchPhotoData = async () => {
       try {
@@ -75,10 +80,9 @@ const useApplicationData = () => {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        console.log('photo data', data);
         dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data });
       } catch (error) {
-        console.error("Error fetching photo data:", error);
+        dispatch({ type: ACTIONS.SET_ERROR, payload: { key: 'photoDataError', error: error.message } }); // Set photo data error
       }
     };
 
@@ -90,10 +94,9 @@ const useApplicationData = () => {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        console.log('topic data', data);
         dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data });
       } catch (error) {
-        console.error("Error fetching topic data:", error);
+        dispatch({ type: ACTIONS.SET_ERROR, payload: { key: 'topicDataError', error: error.message } }); // Set topic data error
       }
     };
 
