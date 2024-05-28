@@ -18,7 +18,8 @@ const HomeRoute = ({
 }) => {
   return (
     <div className="home-route">
-      <TopNavigationBar favoritePhotos={favoritePhotos} />
+      <TopNavigationBar topics={topics} favoritePhotos={favoritePhotos} />
+
       {photos.length > 0 ? ( // Check if photos are available
         <PhotoList
           photos={photos}
