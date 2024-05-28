@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
+// HomeRoute.jsx
+import React from 'react';
 import TopNavigationBar from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
-import photos from '../mocks/photos';
-import topics from '../mocks/topics';
 import '../styles/HomeRoute.scss';
 
+
+
 const HomeRoute = ({ toggleLike, favoritePhotos, displayModal, modalPhoto, setDisplayModal, setModalPhoto }) => {
+
+
   return (
     <div className="home-route">
-      <TopNavigationBar topics={topics} favoritePhotos={favoritePhotos} />
+      <TopNavigationBar favoritePhotos={favoritePhotos} />
+      {/* Pass photoData to PhotoList as photos prop */}
       <PhotoList
-        photos={photos}
+        photos={state.photoData}
         favoritePhotos={favoritePhotos}
         toggleLike={toggleLike}
         setDisplayModal={setDisplayModal}
