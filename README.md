@@ -8,7 +8,7 @@ Featuring a user-friendly interface, users can view larger images, discover simi
 
 With its diverse collection and intuitive features, PhotoLabs offers photography enthusiasts a compelling platform for immersive exploration and discovery.
 
-## Features
+### Features
 
   * Liking photos
   * Display liked photo notification
@@ -16,7 +16,7 @@ With its diverse collection and intuitive features, PhotoLabs offers photography
   * Find similar photos
   * Filter photos based on topics
 
-## Stack
+### Stack
 
   * React
   * JSX
@@ -25,18 +25,19 @@ With its diverse collection and intuitive features, PhotoLabs offers photography
   * Express
   * SCSS
 
-## Setup
+
+### Setup
 
 Install dependencies with `npm install` in each respective `/frontend` and `/backend`.
 
-### [Frontend] Running Webpack Development Server
+#### [Frontend] Running Webpack Development Server
 
 ```sh
 cd frontend
 npm start
 ```
 
-### [Backend] Running Backend Servier
+#### [Backend] Running Backend Servier
 
 Read `backend/readme` for further setup details.
 
@@ -55,7 +56,7 @@ What a good boy!
 
 ### Find Similar Photos
 Want to see more?!
-![Similar Photos](photos/similar-photos.png)
+
 
 ### Filter Photos By Topics
 #### Animals
