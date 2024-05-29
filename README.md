@@ -26,6 +26,19 @@ With its diverse collection and intuitive features, PhotoLabs offers photography
   * SCSS
 
 
+### Getting Started:
+Clone the repository:
+
+```
+git clone git@github.com:charleysmithschofield/photo-labs.git
+```
+
+Install dependencies in the /frontend and in the /backend:
+
+```
+npm install
+```
+
 ### Setup
 
 Install dependencies with `npm install` in each respective `/frontend` and `/backend`.
@@ -55,8 +68,8 @@ What a good boy!
 
 
 ### Find Similar Photos
-Want to see more?!
 ![Similar Photos](photos/similar-photos.png)
+Want to see more?!
 
 ### Filter Photos By Topics
 ### Animals
