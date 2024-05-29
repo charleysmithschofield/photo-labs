@@ -2,13 +2,10 @@
 import React from "react";
 import "../styles/TopicListItem.scss";
 
-
-//component to display topic item
-const TopicListItem = (props) => {
-  
+const TopicListItem = ({ label, onClick }) => {
   return (
-    <div className="topic-list__item">
-      <span> {props.label} </span>
+    <div className="topic-list-item" onClick={onClick}>
+      <span>{label}</span>
     </div>
   );
 };

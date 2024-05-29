@@ -5,17 +5,17 @@ import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import useApplicationData from 'hooks/useApplicationData';
 
 const App = () => {
-  // Use custom hook to get application state and action functions
   const {
     state,
     setDisplayModal,
     setModalPhoto,
     toggleLike,
+    fetchPhotosByTopic
   } = useApplicationData();
 
   return (
     <div className="App">
-      {state.photoData.length > 0 ? ( // Check if photoData is not empty
+      {state.photoData.length > 0 ? (
         <HomeRoute
           photos={state.photoData}
           favoritePhotos={state.favoritePhotos}
@@ -24,10 +24,11 @@ const App = () => {
           toggleLike={toggleLike}
           displayModal={state.displayModal}
           modalPhoto={state.modalPhoto}
-          topics={state.topicData} 
+          topics={state.topicData}
+          onTopicClick={fetchPhotosByTopic}
         />
       ) : (
-        <div>Loading photos...</div> 
+        <div>Loading photos...</div>
       )}
       {state.displayModal && (
         <PhotoDetailsModal

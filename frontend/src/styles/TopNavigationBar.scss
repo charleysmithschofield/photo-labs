@@ -18,3 +18,16 @@
   text-underline-position: auto;
   margin-left: 24px;
 }
+
+.topic-list-container {
+  display: flex;
+}
+
+.topic-list {
+  display: flex;
+  flex-wrap: wrap; /* Display topics horizontally */
+}
+
+.topic-list-item {
+  margin-right: 10px; /* Add some spacing between topics */
+}

@@ -1,10 +1,9 @@
 // HomeRoute.jsx
 import React from 'react';
-import TopNavigationBar from 'components/TopNavigationBar';
+import TopNavigation from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import '../styles/HomeRoute.scss';
-
 
 const HomeRoute = ({
   photos,
@@ -14,13 +13,18 @@ const HomeRoute = ({
   modalPhoto,
   setDisplayModal,
   setModalPhoto,
-  topics
+  topics,
+  onTopicClick
 }) => {
   return (
     <div className="home-route">
-      <TopNavigationBar topics={topics} favoritePhotos={favoritePhotos} />
+      <TopNavigation 
+        topics={topics} 
+        favoritePhotos={favoritePhotos} 
+        onTopicClick={onTopicClick} 
+      />
 
-      {photos.length > 0 ? ( // Check if photos are available
+      {photos.length > 0 ? (
         <PhotoList
           photos={photos}
           favoritePhotos={favoritePhotos}
@@ -31,16 +35,7 @@ const HomeRoute = ({
       ) : (
         <div>No photos available</div>
       )}
-      {/* Display topic data */}
-       {topics.length > 0 && (
-        <div className="topics">
-          {topics.map((topic) => ( // Add parentheses here
-            <div key={topic.id} className="topic">
-              {topic.name}
-            </div>
-          ))} {/* <-- Closing parentheses here */}
-        </div>
-      )}
+
       {displayModal && (
         <PhotoDetailsModal
           show={displayModal}
