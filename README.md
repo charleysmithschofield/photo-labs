@@ -59,11 +59,11 @@ Want to see more?!
 ![Similar Photos](photos/similar-photos.png)
 
 ### Filter Photos By Topics
-#### Animals
+### Animals
 ![Animals](photos/topic-animals.png)
-#### Travel
+### Travel
 ![Travel](photos/topic-travel.png) 
-#### Fashion
+### Fashion
 ![Fashion](photos/topic-fashion.png) 
-#### More
-![More](photos/more-topic.png)
+### More
+![More](photos/more.png)
