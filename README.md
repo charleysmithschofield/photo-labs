@@ -46,7 +46,7 @@ npm start
 ```
 
 ### Welcome to PhotoLabs
-![Home Page](photos/home-page.png)
+![Home Page](/photos/home-page.png)
 
 ### View Larger Images
 ![Modal Image](photos/large-image.png)
@@ -58,12 +58,11 @@ Want to see more?!
 ![Similar Photos](photos/similar-photos.png)
 
 ### Filter Photos By Topics
-View photos based on topics like animals, travel, fashion and more! 
 #### Animals
 ![Animals](photos/topic-animals.png)
 #### Travel
 ![Travel](photos/topic-travel.png) 
 #### Fashion
 ![Fashion](photos/topic-fashion.png) 
-### More
+#### More
 ![More](photos/more-topic.png)
