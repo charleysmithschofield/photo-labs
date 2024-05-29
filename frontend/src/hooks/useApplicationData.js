@@ -85,7 +85,7 @@ const useApplicationData = () => {
     }
   };
   
-  // useEffect hook to fetch data when the photo data from the API
+  // useEffect hook to fetch photo data from the API
   useEffect(() => {
     const fetchPhotoData = async () => {
       try {
@@ -114,6 +114,7 @@ const useApplicationData = () => {
       }
     };
 
+    // Call data fetching functions
     fetchPhotoData();
     fetchTopicData();
   }, []);
