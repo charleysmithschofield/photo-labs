@@ -71,6 +71,20 @@ const useApplicationData = () => {
     }
   };
 
+  // Function to fetch photos by topic from the API
+  const fetchPhotosByTopic = async (topicId) => {
+    try {
+      const response = await fetch(`/api/topics/photos/${topicId}`);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data });
+    } catch (error) {
+      dispatch({ type: ACTIONS.SET_ERROR, payload: { key: 'photoDataError', error: error.message } });
+    }
+  };
+  
   // useEffect hook to fetch data when the photo data from the API
   useEffect(() => {
     const fetchPhotoData = async () => {
@@ -109,6 +123,7 @@ const useApplicationData = () => {
     setDisplayModal,
     setModalPhoto,
     toggleLike,
+    fetchPhotosByTopic
   };
 };
 
