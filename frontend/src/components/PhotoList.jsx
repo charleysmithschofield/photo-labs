@@ -4,7 +4,6 @@ import PhotoListItem from './PhotoListItem';
 import '../styles/PhotoList.scss';
 
 const PhotoList = ({ photos, toggleLike, favoritePhotos, setDisplayModal, setModalPhoto }) => {
-  console.log('photos:', photos); // Add this line to check photos
 
   const handleImageClick = (photo) => {
     setModalPhoto(photo);

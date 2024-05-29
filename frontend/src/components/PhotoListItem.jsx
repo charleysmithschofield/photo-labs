@@ -8,8 +8,6 @@ const PhotoListItem = ({ photo, toggleLike, favoritePhotos = [], onImageClick })
 
   // Check if the current photo is present in the favoritePhotos array
   const isFavorite = favoritePhotos.includes(photo.id);
-
-  console.log(toggleLike);
   
   return (
     <div className="photo-list__item">

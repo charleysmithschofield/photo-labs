@@ -5,8 +5,6 @@ import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton({ photoId, toggleLike }) {
 
-  console.log({ photoId, toggleLike });
-
   // Set initial state to un-Favorited photos
   const [like, setLike] = useState(false);
 

@@ -16,11 +16,6 @@ const PhotoDetailsModal = ({ show, onClose, photo, toggleLike, favoritePhotos })
   const {user} = photo;
   const {location} = photo;
 
-  console.log('Similar Photos Array', similarPhotosArray);
-  console.log('Photo details:', photo);
-  console.log('user', user);
-  console.log('location', location);
-
   return (
     <div className="photo-details-modal">
       <button className="photo-details-modal__close-button" onClick={onClose}>
@@ -40,7 +35,6 @@ const PhotoDetailsModal = ({ show, onClose, photo, toggleLike, favoritePhotos })
       <div className="photo-details-modal__main-photo">
         <img src={photo.urls.full} alt={photo.description} className="photo-details-modal__image" />
       </div>
-
 
       {/* Select Photo User Info */}
       {user && (
