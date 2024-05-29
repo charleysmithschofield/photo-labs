@@ -56,7 +56,7 @@ What a good boy!
 
 ### Find Similar Photos
 Want to see more?!
-
+![Similar Photos](photos/similar-photos.png)
 
 ### Filter Photos By Topics
 #### Animals
