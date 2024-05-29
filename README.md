@@ -60,23 +60,23 @@ npm start
 ```
 
 ### Welcome to PhotoLabs
-![Home Page](/photos/home-page.png)
+![Home Page](/docs/home-page.png)
 
 ### View Larger Images
-![Modal Image](photos/large-image.png)
+![Modal Image](docs/large-image.png)
 What a good boy!
 
 
 ### Find Similar Photos
-![Similar Photos](photos/similar-photos.png)
+![Similar Photos](docs/similar-photos.png)
 Want to see more?!
 
 ### Filter Photos By Topics
 ### Animals
-![Animals](photos/topic-animals.png)
+![Animals](docs/topic-animals.png)
 ### Travel
-![Travel](photos/topic-travel.png) 
+![Travel](docs/topic-travel.png) 
 ### Fashion
-![Fashion](photos/topic-fashion.png) 
+![Fashion](docs/topic-fashion.png) 
 ### More
-![More](photos/more.png)
+![More](docs/more.png)
