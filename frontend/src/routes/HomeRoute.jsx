@@ -23,7 +23,6 @@ const HomeRoute = ({
         favoritePhotos={favoritePhotos} 
         onTopicClick={onTopicClick} 
       />
-
       {photos.length > 0 ? (
         <PhotoList
           photos={photos}
@@ -41,6 +40,8 @@ const HomeRoute = ({
           show={displayModal}
           onClose={() => setDisplayModal(false)}
           photo={modalPhoto}
+          toggleLike={toggleLike}
+          favoritePhotos={favoritePhotos}
         />
       )}
     </div>

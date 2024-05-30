@@ -1,28 +1,24 @@
 // PhotoFavButton.jsx
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-function PhotoFavButton({ photoId, toggleLike }) {
+function PhotoFavButton({ photoId, toggleLike, favoritePhotos }) {
+  // Determine if the photo is a favorite based on the global state
+  const isFavorite = favoritePhotos.includes(photoId);
 
-  // Set initial state to un-Favorited photos
-  const [like, setLike] = useState(false);
-
-  // Set state to opposite of the previous state when icon is clicked
+  // Handle click event to toggle the favorite status
   const handleClick = () => {
-    setLike(prevLike => !prevLike);
-    // call toggleLike function from proprs with photoId
     toggleLike(photoId);
   };
-
 
   return (
     // Clickable area for the favorite icon
     <div className={"photo-list__fav-icon"} onClick={handleClick}>
       {/* Actual favorite icon */}
       <div className={"photo-list__fav-icon-svg"}>
-        {/* Passes the like state as a prop to FavIcon */}
-        <FavIcon selected={like} /> 
+        {/* Passes the favorite state as a prop to FavIcon */}
+        <FavIcon selected={isFavorite} />
       </div>
     </div>
   );
