@@ -4,8 +4,10 @@ import PhotoListItem from './PhotoListItem';
 import '../styles/PhotoList.scss';
 
 const PhotoList = ({ photos, toggleLike, favoritePhotos, setDisplayModal, setModalPhoto }) => {
+  console.log('Props in PhotoList:', { setDisplayModal, setModalPhoto });
 
   const handleImageClick = (photo) => {
+    console.log('handleImageClick called with:', photo);
     setModalPhoto(photo);
     setDisplayModal(true);
   };
@@ -18,10 +20,13 @@ const PhotoList = ({ photos, toggleLike, favoritePhotos, setDisplayModal, setMod
           photo={photo}
           toggleLike={toggleLike}
           favoritePhotos={favoritePhotos}
+          setModalPhoto={setModalPhoto}
+          setDisplayModal={setDisplayModal} // Pass down functions
           onImageClick={() => handleImageClick(photo)}
         />
       ))}
     </ul>
+
   );
 };
 
