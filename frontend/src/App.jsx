@@ -10,32 +10,30 @@ const App = () => {
     setDisplayModal,
     setModalPhoto,
     toggleLike,
-    fetchPhotosByTopic
+    fetchPhotosByTopic,
+    toggleDarkMode,
   } = useApplicationData();
 
   return (
-    <div className="App">
-      {state.photoData.length > 0 ? (
-        <HomeRoute
-          photos={state.photoData}
-          favoritePhotos={state.favoritePhotos}
-          setDisplayModal={setDisplayModal}
-          setModalPhoto={setModalPhoto}
-          toggleLike={toggleLike}
-          displayModal={state.displayModal}
-          modalPhoto={state.modalPhoto}
-          topics={state.topicData}
-          onTopicClick={fetchPhotosByTopic}
-        />
-      ) : (
-        <div>Loading photos...</div>
-      )}
+    <div className={`App ${state.darkMode ? 'dark-mode' : 'light-mode'}`}>
+      <HomeRoute
+        photos={state.photoData}
+        favoritePhotos={state.favoritePhotos}
+        setDisplayModal={setDisplayModal}
+        setModalPhoto={setModalPhoto}
+        toggleLike={toggleLike}
+        displayModal={state.displayModal}
+        modalPhoto={state.modalPhoto}
+        topics={state.topicData}
+        onTopicClick={fetchPhotosByTopic}
+        toggleDarkMode={toggleDarkMode}
+      />
       {state.displayModal && (
         <PhotoDetailsModal
           show={state.displayModal}
           onClose={() => setDisplayModal(false)}
           photo={state.modalPhoto}
-          toggleLike={toggleLike}
+          toggleLike={toggleLike} 
           favoritePhotos={state.favoritePhotos}
         />
       )}

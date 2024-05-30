@@ -1,6 +1,6 @@
 // HomeRoute.jsx
 import React from 'react';
-import TopNavigation from 'components/TopNavigationBar';
+import TopNavigationBar from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import '../styles/HomeRoute.scss';
@@ -14,15 +14,18 @@ const HomeRoute = ({
   setDisplayModal,
   setModalPhoto,
   topics,
-  onTopicClick
+  onTopicClick,
+  toggleDarkMode,
 }) => {
   return (
     <div className="home-route">
-      <TopNavigation 
-        topics={topics} 
-        favoritePhotos={favoritePhotos} 
-        onTopicClick={onTopicClick} 
+      <TopNavigationBar
+        topics={topics}
+        favoritePhotos={favoritePhotos}
+        onTopicClick={onTopicClick}
+        toggleDarkMode={toggleDarkMode}
       />
+
       {photos.length > 0 ? (
         <PhotoList
           photos={photos}
@@ -40,8 +43,6 @@ const HomeRoute = ({
           show={displayModal}
           onClose={() => setDisplayModal(false)}
           photo={modalPhoto}
-          toggleLike={toggleLike}
-          favoritePhotos={favoritePhotos}
         />
       )}
     </div>

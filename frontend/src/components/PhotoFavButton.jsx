@@ -4,8 +4,8 @@ import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton({ photoId, toggleLike, favoritePhotos }) {
-  // Determine if the photo is a favorite based on the global state
-  const isFavorite = favoritePhotos.includes(photoId);
+  // Ensure favoritePhotos is defined before accessing its properties
+  const isFavorite = favoritePhotos && favoritePhotos.includes(photoId);
 
   // Handle click event to toggle the favorite status
   const handleClick = () => {

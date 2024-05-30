@@ -9,7 +9,8 @@ export const ACTIONS = {
   SET_MODAL_PHOTO: 'SET_MODAL_PHOTO',
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
   SET_TOPIC_DATA: 'SET_TOPIC_DATA',
-  SET_ERROR: 'SET_ERROR'
+  SET_ERROR: 'SET_ERROR',
+  TOGGLE_DARK_MODE: 'TOGGLE_DARK_MODE',
 };
 
 // Reducer function to manage state based on action types 
@@ -30,7 +31,9 @@ function reducer(state, action) {
     case ACTIONS.SET_TOPIC_DATA:
       return { ...state, topicData: action.payload, topicDataError: null };
     case ACTIONS.SET_ERROR:
-      return { ...state, [action.payload.key]: action.payload.error }; // Set specific error state
+      return { ...state, [action.payload.key]: action.payload.error };
+    case ACTIONS.TOGGLE_DARK_MODE:
+      return { ...state, darkMode: !state.darkMode };
     default:
       return state;
   }
@@ -45,7 +48,8 @@ const initialState = {
   photoData: [],
   photoDataError: null,
   topicData: [],
-  topicDataError: null
+  topicDataError: null,
+  darkMode: false,
 };
 
 // Custom hook to manage state and actions
@@ -70,6 +74,12 @@ const useApplicationData = () => {
       dispatch({ type: ACTIONS.FAV_PHOTO_ADDED, payload: { id } });
     }
   };
+
+  // Function to toggle dark mode
+  const toggleDarkMode = () => {
+    console.log("toggleDarkMode dispatching TOGGLE_DARK_MODE action");
+    dispatch({ type: ACTIONS.TOGGLE_DARK_MODE });
+  }
 
   // Function to fetch photos by topic from the API
   const fetchPhotosByTopic = async (topicId) => {
@@ -124,7 +134,8 @@ const useApplicationData = () => {
     setDisplayModal,
     setModalPhoto,
     toggleLike,
-    fetchPhotosByTopic
+    fetchPhotosByTopic,
+    toggleDarkMode
   };
 };
 
