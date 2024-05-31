@@ -21,7 +21,7 @@ const PhotoList = ({ photos, toggleLike, favoritePhotos, setDisplayModal, setMod
           toggleLike={toggleLike}
           favoritePhotos={favoritePhotos}
           setModalPhoto={setModalPhoto}
-          setDisplayModal={setDisplayModal} // Pass down functions
+          setDisplayModal={setDisplayModal}
           onImageClick={() => handleImageClick(photo)}
         />
       ))}
