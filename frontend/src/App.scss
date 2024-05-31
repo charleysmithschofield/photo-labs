@@ -6,6 +6,7 @@ $light-mode-text-color: #ffffff;
 $dark-mode-background: #111111;
 $dark-mode-text-color: #ffffff;
 
+
 // Styles for light mode
 .light-mode .App-header {
   background-color: $light-mode-background;
@@ -31,69 +32,40 @@ $dark-mode-text-color: #ffffff;
   color: #61dafb;
 }
 
+.topic-list-item {
+  font-size: large;
+  font-weight: 400;
+}
 
 // Styles for dark mode
 .App.dark-mode {
-  background-color: #282c34; // Dark background color
+  background-color: #1d1e1f; 
   color: #ffffff;
 }
 
 .dark-mode .top-nav-bar__logo {
-  background-color: #282c34; // Dark background color
+  background-color: #1d1e1f; 
   color: #ffffff;
 }
 
-.photo-details-modal {
-  background-color: #282c34; // Dark background color
+.dark-mode .photo-details-modal {
+  background-color: #1d1e1f; 
   color: #ffffff;
 }
 
+.dark-mode .photo-list__user-location {
+  color: #E5E4E2;
+}
 
+.dark-mode .photo-details-modal__photographer-location {
+  color: #E5E4E2;
+}
 
-// Dark mode styles
-.App.dark {
-  background-color: #282c34;
-  color: #ffffff; 
-
-  .top-nav-bar__logo {
-    color: #ffffff; 
-  }
-  .dark-mode-button {
-    background-color: #282c34;
-  }
-  
-  .photo-details-modal {
-    background-color: #282c34;
-    color: #ffffff;
-  }
-
-  h2 {
-    color: #ffffff;
-  }
-
-  .photo-details-modal__close-button {
-    background-color: #282c34;
-  }
-
-  .topic-list__item span {
-    color: #ffffff;
-  
-    &:hover {
-      color: #ffffff;
-    }
-  }
-
-  .top-nav-bar {
-    -webkit-box-shadow: 0 4px 6px -6px #ffffff;
-    -moz-box-shadow: 0 4px 6px -6px #ffffff;
-    box-shadow: 0 4px 6px -6px #837f7f;
-  }
-  
-  span {
-    color: #ffffff;
-  }
-} 
-
+.dark-mode .topic-list-item {
+  font-size: large;
+  font-weight: 400;
+  color: #ffffff;
+}
 
 // Media Queries
 @media (prefers-reduced-motion: no-preference) {
