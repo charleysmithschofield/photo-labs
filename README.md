@@ -59,24 +59,46 @@ cd backend
 npm start
 ```
 
-### Welcome to PhotoLabs
-![Home Page](/docs/home-page.png)
+### Welcome to PhotoLabs - Dark Mode
+![Dark Home](docs/dark-home-page.png)
 
 ### View Larger Images
-![Modal Image](docs/large-image.png)
+![Dark Modal](docs/dark-modal.png)
 What a good boy!
 
-
 ### Find Similar Photos
-![Similar Photos](docs/similar-photos.png)
+![Dark Similar](docs/dark-similar-photos.png)
 Want to see more?!
 
 ### Filter Photos By Topics
 ### Animals
-![Animals](docs/topic-animals.png)
+![Dark Animals](docs/dark-animals.png)
 ### Travel
-![Travel](docs/topic-travel.png) 
+![Dark Travel](docs/dark-travel.png)
 ### Fashion
-![Fashion](docs/topic-fashion.png) 
+![Dark Fashion](docs/dark-fashion.png)
 ### More
-![More](docs/more.png)
+![Dark More](docs/dark-nature.png)
+
+
+### Welcome to PhotoLabs - Light Mode
+![Light Home](docs/light-home-page.png)
+
+### View Larger Images
+![Light Modal](docs/light-modal.png)
+What a good boy!
+
+
+### Find Similar Photos
+![Light Similar](docs/light-similar-photos.png)
+Want to see more?!
+
+### Filter Photos By Topics
+### Animals
+![Light Animals](docs/light-animals.png)
+### Travel
+![Light Travel](docs/light-travel.png)
+### Fashion
+![Light Fashion](docs/light-fashion.png)
+### More
+![Light More](docs/light-nature.png)
