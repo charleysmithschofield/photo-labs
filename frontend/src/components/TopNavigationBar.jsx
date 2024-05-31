@@ -21,11 +21,9 @@ const TopNavigation = ({ topics, favoritePhotos, onTopicClick, toggleDarkMode })
       <div className="topic-list-container">
         <TopicList topics={topics} onTopicClick={onTopicClick} />
       </div>
-      <div className="dark-mode-button">
-        <button onClick={handleDarkModeToggle}>
+        <button className="dark-mode-button" onClick={handleDarkModeToggle}>
           {isDarkMode ? "🌕" : "🌑"} {/* Display button text based on dark mode state */}
         </button>
-      </div>
       <FavBadge isFavPhotoExist={isFavPhotoExist} />
     </div>
   );
