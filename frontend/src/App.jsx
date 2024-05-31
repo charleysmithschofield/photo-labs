@@ -1,21 +1,22 @@
 // App.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import useApplicationData from 'hooks/useApplicationData';
+import './App.scss';
+
 
 const App = () => {
-  const {
-    state,
-    setDisplayModal,
-    setModalPhoto,
-    toggleLike,
-    fetchPhotosByTopic,
-    toggleDarkMode,
-  } = useApplicationData();
+  const { state, setDisplayModal, setModalPhoto, toggleLike, fetchPhotosByTopic } = useApplicationData();
+  const [isDarkMode, setIsDarkMode] = useState(false); // Initial dark mode state
+
+  // Function to toggle dark mode
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode); 
+  };
 
   return (
-    <div className={`App ${state.darkMode ? 'dark-mode' : 'light-mode'}`}>
+    <div className={`App ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
       <HomeRoute
         photos={state.photoData}
         favoritePhotos={state.favoritePhotos}

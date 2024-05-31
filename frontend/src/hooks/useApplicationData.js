@@ -32,10 +32,10 @@ function reducer(state, action) {
       return { ...state, topicData: action.payload, topicDataError: null };
     case ACTIONS.SET_ERROR:
       return { ...state, [action.payload.key]: action.payload.error };
-    case ACTIONS.TOGGLE_DARK_MODE:
-      return { ...state, darkMode: !state.darkMode };
-    default:
-      return state;
+      case ACTIONS.TOGGLE_DARK_MODE:
+        return { ...state, darkMode: !state.darkMode };
+      default:
+        return state;
   }
 }
 
