@@ -81,6 +81,8 @@ Want to see more?!
 ![Dark More](docs/dark-nature.png)
 
 
+
+
 ### Welcome to PhotoLabs - Light Mode
 ![Light Home](docs/light-home-page.png)
 
