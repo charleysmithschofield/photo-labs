@@ -6,7 +6,7 @@ PhotoLabs is a dynamic web application that enables users to explore curated pho
 
 Featuring a user-friendly interface, users can view larger images, discover similar photos, and filter content by topics like animals, travel, fashion, and more. 
 
-With its diverse collection and intuitive features, PhotoLabs offers photography enthusiasts a compelling platform for immersive exploration and discovery.
+With its diverse collection and intuitive features, include light and dark mode for easier viewing. PhotoLabs offers photography enthusiasts a compelling platform for immersive exploration and discovery.
 
 ### Features
 
@@ -15,6 +15,8 @@ With its diverse collection and intuitive features, PhotoLabs offers photography
   * View large image
   * Find similar photos
   * Filter photos based on topics
+  * Light mode
+  * Dark mode 
 
 ### Stack
 
